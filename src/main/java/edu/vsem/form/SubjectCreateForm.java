@@ -1,9 +1,9 @@
 package edu.vsem.form;/*
   @author   Radyslav Churkin
   @project   course-project
-  @class  ItemUpdateForm
+  @class  SubjectCreateForm
   @version  1.0.0 
-  @since 22.07.2021 - 21.36
+  @since 01.08.2021 - 14.18
 */
 
 import lombok.AllArgsConstructor;
@@ -14,12 +14,10 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemUpdateForm {
-    private String id;
+public class SubjectCreateForm {
     private String name;
-    private String desc;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-
+    private double lectureRate;
+    private double practicesRate;
+    private double labsRate;
+    private String description;
 }
-

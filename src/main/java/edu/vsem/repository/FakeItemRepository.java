@@ -28,8 +28,6 @@ public class FakeItemRepository {
             )
     );
 
-
-
     public Item create(Item item) {
         String id = UUID.randomUUID().toString();
         item.setId(id);

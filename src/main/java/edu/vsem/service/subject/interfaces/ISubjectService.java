@@ -6,7 +6,6 @@ package edu.vsem.service.subject.interfaces;/*
   @since 19.07.2021 - 17.59
 */
 
-import edu.vsem.model.Item;
 import edu.vsem.model.Subject;
 
 import java.util.List;

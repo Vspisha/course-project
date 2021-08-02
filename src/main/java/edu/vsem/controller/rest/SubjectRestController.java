@@ -10,9 +10,7 @@ import edu.vsem.model.Item;
 import edu.vsem.model.Subject;
 import edu.vsem.service.subject.impls.SubjectServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -37,6 +35,15 @@ public class SubjectRestController {
     @RequestMapping("/delete/{id}")
     public Subject delete(@PathVariable("id")String id){
         return service.delete(id);
+    }
+    @PostMapping("/create")
+    public Subject create(@RequestBody Subject subject){
+        return service.create(subject);
+    }
+
+    @PostMapping("/update")
+    public Subject update(@RequestBody Subject subject){
+        return service.update(subject);
     }
 
 }

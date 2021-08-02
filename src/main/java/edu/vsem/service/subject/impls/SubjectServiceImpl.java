@@ -6,56 +6,63 @@ package edu.vsem.service.subject.impls;/*
   @since 19.07.2021 - 18.21
 */
 
-import edu.vsem.model.Item;
+
 import edu.vsem.model.Subject;
+import edu.vsem.repository.FakeSubjectRepository;
+import edu.vsem.repository.SubjectMongoRepository;
 import edu.vsem.service.subject.interfaces.ISubjectService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 
 public class SubjectServiceImpl implements ISubjectService {
-    private LocalDateTime time = LocalDateTime.now();
-    private List<Subject> list = new ArrayList<>(
-            Arrays.asList(
-                    new Subject("0","name0", 30, 15, 10,"desc0", time, time ),
-                    new Subject("1","name1", 22, 5, 5,"desc1", time, time),
-                    new Subject("2","name2", 11, 3, 8,"desc2", time, time),
-                    new Subject("3","name3", 14, 8, 9,"desc3", time, time)
 
+    @Autowired
+    FakeSubjectRepository repository;
 
-            )
-    );
+    @Autowired
+    SubjectMongoRepository mongoRepository;
+    //@PostConstruct
+    void init(){
+        List<Subject> list = repository.getAll();
+        mongoRepository.saveAll(list);
+    }
     @Override
     public Subject create(Subject subject) {
-        return null;
+        subject.setCreatedAt(LocalDateTime.now());
+        subject.setUpdatedAt(LocalDateTime.now());
+        return mongoRepository.save(subject);
     }
 
     @Override
     public Subject get(String id) {
-        Subject subject = list.stream().filter(el -> el.getId().equals(id))
-                .findAny().get();
-        return subject;
+        return mongoRepository.findById(id).get();
     }
 
     @Override
     public Subject update(Subject subject) {
-        return null;
+        Subject subjectToUpdate = this.get(subject.getId());
+        LocalDateTime creation = subjectToUpdate.getCreatedAt();
+        subject.setCreatedAt(creation);
+        subject.setUpdatedAt(LocalDateTime.now());
+        return mongoRepository.save(subject);
     }
 
     @Override
     public Subject delete(String id) {
         Subject subject = this.get(id);
-        list.remove(subject);
+        mongoRepository.deleteById(id);
         return subject;
     }
 
     @Override
     public List<Subject> getAll() {
-        return list;
+        return mongoRepository.findAll();
     }
 }
+
