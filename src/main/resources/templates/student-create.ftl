@@ -4,28 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Create Subject</title>
+    <title>Create Student</title>
 </head>
 <body>
 
 <h1>Creation</h1>
 
-<form name="subject" action="" method="POST">
+<form name="student" action="" method="POST">
     <div class="mb-3" style="width: 50%">
         <label for="exampleInputEmail1" class="form-label">Name</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" <@spring.formInput "form.name" "" "text"/>
     </div>
     <div class="mb-3" style="width: 50%">
-        <label for="exampleInputEmail1" class="form-label">Lecture Rate</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" <@spring.formInput "form.lectureRate" "" "text"/>
+        <label for="exampleInputEmail1" class="form-label">Surname</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" <@spring.formInput "form.surname" "" "text"/>
     </div>
     <div class="mb-3" style="width: 50%">
-        <label for="exampleInputEmail1" class="form-label">Practices Rate</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" <@spring.formInput "form.practicesRate" "" "text"/>
+        <label for="exampleInputEmail1" class="form-label">Patronymic</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" <@spring.formInput "form.patronymic" "" "text"/>
     </div>
     <div class="mb-3" style="width: 50%">
-        <label for="exampleInputEmail1" class="form-label">Labs Rate</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" <@spring.formInput "form.labsRate" "" "text"/>
+        <label for="exampleInputEmail1" class="form-label">Adress</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" <@spring.formInput "form.adress" "" "text"/>
+    </div>
+    <div class="mb-3" style="width: 50%">
+        <label for="exampleInputEmail1" class="form-label">Telefon</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" <@spring.formInput "form.telefonNumber" "" "text"/>
     </div>
     <div class="mb-3" style="width: 50%">
         <label for="exampleInputPassword1" class="form-label">Description</label>
