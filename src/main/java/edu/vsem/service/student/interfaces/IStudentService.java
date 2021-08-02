@@ -13,9 +13,9 @@ import java.util.List;
 
 public interface IStudentService {
     //CRUD
-    Student create(Student subject);
+    Student create(Student student);
     Student get(String id);
-    Student update(Student subject);
+    Student update(Student student);
     Student delete(String id);
     List<Student> getAll();
 
